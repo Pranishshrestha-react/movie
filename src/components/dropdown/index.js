@@ -6,9 +6,9 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText
+   
   } from 'reactstrap';
-  import Genre from './genre.js';
+  
 
 
 const DropDown = ({genres}) =>{
