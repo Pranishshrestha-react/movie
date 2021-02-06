@@ -8,9 +8,10 @@ import './App.css';
 
 function App() {
   return(
+    <div className="body">
   <BrowserRouter>
     <NavBar />
-    <div class="container-fluid">
+
     
       
     <Switch>
@@ -21,9 +22,10 @@ function App() {
 
 
     </Switch>
-    </div>
+  
   
   </BrowserRouter>
+  </div>
   );
 }
 
