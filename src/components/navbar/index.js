@@ -7,9 +7,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  NavLink, 
   NavbarText
 } from 'reactstrap';
+
 import Genre from '../dropdown/genre.js';
 
 const NavBar = (props) => {
@@ -21,19 +22,19 @@ const NavBar = (props) => {
     <div>
       <Navbar color="dark" dark expand="md">
           <div class="container-fluid">
-        <NavbarBrand> <Link to ="/" style={{color:'#c0c0c0'}}>GOMOVIES</Link></NavbarBrand>
+        <NavbarBrand> <Link to ="/" style={{color:'#c0c0c0'}}>DUDE-MOVIES</Link></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Movies</NavLink>
+              <NavLink><Link to ="/all_pmovies" style={{color:'#c0c0c0'}}>Movies </Link></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>TV Series</NavLink>
+              <NavLink><Link to ="/all_tmovies" style={{color:'#c0c0c0'}}>TV Series</Link></NavLink>
             </NavItem>
            <Genre />
           </Nav>
-          <NavbarText>Used API</NavbarText>
+          <NavbarText><Link to ="/all_tmovies" style={{color:'#c0c0c0'}}>Used API</Link></NavbarText>
         </Collapse>
         </div>
       </Navbar>
