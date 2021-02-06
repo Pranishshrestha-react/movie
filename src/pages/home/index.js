@@ -3,7 +3,8 @@ import axios from 'axios';
 import { BASE_URL, API_KEY} from '../../config.js';
 import MovieCard from '../../components/moviecard';
 import { BrowserRouter, Link  } from 'react-router-dom';
-import CarouselPage from '../../components/carousel';  
+import CarouselPage from '../../components/carousel'; 
+
 
 
 const Home = () => {
@@ -44,49 +45,49 @@ const Home = () => {
         <div>
             <div>
                 <BrowserRouter>
-                <CarouselPage />
+                <CarouselPage images={trendings}/>
                 </BrowserRouter>
             </div>
+            <div className="container-fluid">
+                <div className ="mt-2 text-light card bg-info p-2" >
+                    <h3>Upcoming Movies</h3>
+                    <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_umovies" style={{color:'#fff'}}>->></Link></h4>
+                </div>
 
-            <div className ="mt-2 text-light card bg-info p-2" >
-                <h3>Upcoming Movies</h3>
-                <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_umovies" style={{color:'#fff'}}>View All</Link></h4>
-            </div>
+                <div className="row">
+                {
+                    upComing.map(movie => {
+                        return <div className="col-md-2"><MovieCard movie={movie}/></div>
+                    })
+                }
+                </div>
+                
+                <div className ="mt-2 text-light card bg-info p-2" >
+                    <h3>Playing Now</h3>
+                    <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_pmovies" style={{color:'#fff'}}>->></Link></h4>
+                </div>
 
-            <div className="row">
-            {
-                upComing.map(movie => {
-                    return <div className="col-md-2"><MovieCard movie={movie}/></div>
-                })
-            }
-            </div>
-            
-             <div className ="mt-2 text-light card bg-info p-2" >
-                <h3>Playing Now</h3>
-                <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_pmovies" style={{color:'#fff'}}>View All</Link></h4>
-            </div>
+                <div className="row">
+                {
+                    playingNow.map(movie => {
+                        return <div className="col-md-2"><MovieCard movie={movie}/></div>
+                    })
+                }
+                </div>
 
-            <div className="row">
-            {
-                playingNow.map(movie => {
-                    return <div className="col-md-2"><MovieCard movie={movie}/></div>
-                })
-            }
-            </div>
+                <div className ="mt-2 text-light card bg-info p-2">
+                    <h3>Trending Now</h3>
+                    <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_tmovies" style={{color:'#fff'}}>->></Link></h4>
+                </div>
 
-            <div className ="mt-2 text-light card bg-info p-2">
-                <h3>Trending Now</h3>
-                <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_tmovies" style={{color:'#fff'}}>View All</Link></h4>
+                <div className="row">
+                {
+                    trendings.map(movie => {
+                        return <div className="col-md-2"><MovieCard movie={movie}/></div>
+                    })
+                }
+                </div>
             </div>
-
-            <div className="row">
-            {
-                trendings.map(movie => {
-                    return <div className="col-md-2"><MovieCard movie={movie}/></div>
-                })
-            }
-            </div>
-           
 
            
         </div>
