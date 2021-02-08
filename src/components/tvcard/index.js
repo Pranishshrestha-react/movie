@@ -1,20 +1,23 @@
 import React from 'react';
 import {
     Card, CardImg, CardBody,
-    CardTitle, CardSubtitle, Badge 
+    CardTitle, Badge 
   } from 'reactstrap';
 import {IMAGE_BASE_URL} from '../../config.js';
-const TvCard =({serie}) => {
+import '../moviecard/moviecard.css';
+const TvCard =({show}) => {
     return(
-        <Card className="mt-2">
-        <CardImg top width="100%" src={`${IMAGE_BASE_URL}${serie.poster_path}`} alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h6">{serie.name}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Popularity: {serie.popularity}</CardSubtitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Vote Count: {serie.vote_count}</CardSubtitle>
-          
-        </CardBody> 
-      </Card>
+      <div>
+        <Card className="mt-2 image card">
+        <CardImg top width="100%" src={`${IMAGE_BASE_URL}${show.poster_path}`} alt="Card image cap" />
+        <CardBody className="card-title mb-0">
+          <CardTitle tag="h6">{show.name}</CardTitle>
+        </CardBody>  
+        </Card>
+        <div className="card-tag">
+          <Badge color="info">{show.original_language}</Badge>
+        </div>
+      </div>
 
     )
 }
