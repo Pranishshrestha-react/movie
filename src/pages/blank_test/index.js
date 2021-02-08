@@ -13,6 +13,7 @@ const ArrayGen= () => {
     const getArrayGen = async() => {
         const res = await axios.get(`${BASE_URL}/genre/movie/list` , {params:{ api_key: API_KEY}});
         setArrayGen(res.data.genres);
+        console.log(res);
         
 
     }
