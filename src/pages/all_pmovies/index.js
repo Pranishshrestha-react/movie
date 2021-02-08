@@ -14,12 +14,12 @@ const All_pmovies= () => {
     const getPMovies = async() => {
         const res = await axios.get(`${BASE_URL}/movie/now_playing`, {params:{ api_key: API_KEY}});
         setPMovies(res.data.results);
-
+        
     }
 
 
     return(
-        <div>
+        <div style={{marginTop:'4.5%'}}>
             <div className ="mt-2 text-light card bg-info p-2" >
                 <h3>Playing Now</h3>
                 
