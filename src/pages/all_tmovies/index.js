@@ -16,7 +16,7 @@ const All_tmovies = () => {
     }
 
     return(
-        <div>
+        <div style={{marginTop:'4.5%'}}>
             <div className="mt-2 text-light card bg-info p-2">
                 <h3>Trending Now</h3>
             </div>
