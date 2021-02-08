@@ -11,15 +11,15 @@ import {
   
 
 
-const DropDown = ({genres}) =>{
+const Genre = ({listG}) => {
     return (
-        <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+        <UncontrolledDropdown >
+              <DropdownToggle nav caret style={{color:'#c0c0c0'}}>
                Genre
               </DropdownToggle>
                 <DropdownMenu right>
                         <DropdownItem>
-                            Comedy
+                           {listG.id}
                         </DropdownItem>
                         <DropdownItem>
                             Thriller
@@ -37,4 +37,4 @@ const DropDown = ({genres}) =>{
     }
 
 
-export default DropDown;
+export default Genre;
