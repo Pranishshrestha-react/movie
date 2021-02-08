@@ -13,13 +13,15 @@ import {
 
 const Genre = ({listG}) => {
     return (
+        <div>
         <UncontrolledDropdown >
               <DropdownToggle nav caret style={{color:'#c0c0c0'}}>
                Genre
               </DropdownToggle>
                 <DropdownMenu right>
                         <DropdownItem>
-                           {listG.id}
+                           Comedy
+                           
                         </DropdownItem>
                         <DropdownItem>
                             Thriller
@@ -33,6 +35,8 @@ const Genre = ({listG}) => {
                   </DropdownMenu>
               
             </UncontrolledDropdown>
+            
+            </div>
         )
     }
 
