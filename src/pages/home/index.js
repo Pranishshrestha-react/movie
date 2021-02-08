@@ -4,20 +4,21 @@ import { BASE_URL, API_KEY} from '../../config.js';
 import MovieCard from '../../components/moviecard';
 import { BrowserRouter, Link  } from 'react-router-dom';
 import CarouselPage from '../../components/carousel'; 
+import TvCard from '../../components/tvcard/index.js';
 
 
 
 const Home = () => {
     const [trendings, setTrendings] = React.useState([]);
     const [playingNow, setPlayingNow] = React.useState([]);
-    const[upComing, setUpComing] = React.useState([]);
-    // const [tvSeries, setTvSeries] = React.useState([]);
+    const [upComing, setUpComing] = React.useState([]);
+    const [tvSeries, setTvSeries] = React.useState([]);
 
     React.useEffect(() => {
         getTrendingMovies();
         getPlayingNow();
         getUpComing();
-        //getTvSeries();
+        getTvSeries();
     }, []);
 
     const getTrendingMovies = async() => {
@@ -36,10 +37,10 @@ const Home = () => {
         setUpComing(res.data.results.splice(0,6));
     }
 
-   // const getTvSeries = async() => {
-     //   const res = await axios.get(`${BASE_URL}/tv/latest` , {params:{ api_key: API_KEY}});
-      //  setTvSeries(res.data.results);
-    //}
+    const getTvSeries = async() => {
+        const res = await axios.get(`${BASE_URL}/trending/tv/week` , {params:{ api_key: API_KEY}});
+        setTvSeries(res.data.results.splice(0,6));
+    }
 
     return(
         <div>
@@ -71,6 +72,7 @@ const Home = () => {
                 {
                     playingNow.map(movie => {
                         return <div className="col-md-2"><MovieCard movie={movie}/></div>
+                        
                     })
                 }
                 </div>
@@ -84,6 +86,20 @@ const Home = () => {
                 {
                     trendings.map(movie => {
                         return <div className="col-md-2"><MovieCard movie={movie}/></div>
+                    })
+                }
+                </div>
+
+                <div className ="mt-2 text-light card bg-info p-2">
+                    <h3>Latest TV Shows</h3>
+                    <h4 style={{margin:'0.4% 0 0 90%', position:'absolute'}}><Link to="/all_series" style={{color:'#fff'}}>->></Link></h4>
+                </div>
+
+                <div className="row">
+                {
+                    tvSeries.map(show => {
+                        return <div className="col-md-2"><TvCard show={show}/></div>
+                        
                     })
                 }
                 </div>
