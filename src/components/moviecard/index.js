@@ -4,22 +4,21 @@ import {
     CardTitle, Badge 
   } from 'reactstrap';
 import {IMAGE_BASE_URL} from '../../config.js';
+import './moviecard.css';
 const MovieCard =({movie}) => {
     return(
-        <Card className="mt-2">
+      <div>
+        <Card className="mt-2 image-card">
         <CardImg top width="100%" src={`${IMAGE_BASE_URL}${movie.poster_path}`} alt="Card image cap" />
-        <CardBody>
-          <CardTitle tag="h6">{movie.title}</CardTitle>
-          <div style={{fontSize:'12px'}}>
-              Popularity: {movie.popularity}<br/>
-              Vote Count: {movie.vote_count}
-          </div>
-          <div>
-              {movie.adult?<Badge color="info">Adult</Badge> : <Badge color="info">Safe</Badge>}
-          </div>
+        <CardBody className="card-title mb-0">
+          <CardTitle tag="h6" >{movie.title}</CardTitle>
+          
         </CardBody>
       </Card>
-
+      <div className="card-tag">
+          {movie.adult?<Badge color="info">Adult</Badge> : <Badge color="info">Safe</Badge>}
+      </div> 
+      </div>
     )
 }
 export default MovieCard;
